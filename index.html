@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CortexPhish</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="tab.png" type="image/png">
+</head>
+<body>
+
+  <!-- Top Logo + Title Section -->
+  <div class="main-header">
+    <img src="tab.png" alt="Logo" class="logo-icon">
+    <h1>CortexPhish</h1>
+  </div>
+
+  <div class="main-layout">
+    <!-- URL Checker -->
+    <div class="container checker-box">
+      <div class="header inner-header">
+        <h2>Phishing Threat Analyzer</h2>
+        <a href="info.html" class="info-button no-underline">
+          <img src="info.svg" alt="info" style="width: 16px; vertical-align: middle; margin-right: 6px;">
+          Info
+        </a>
+      </div>
+      <p class="subtitle">Paste a suspicious URL to detect red flags</p>
+      <input id="urlInput" placeholder="https://example.com" />
+      <button onclick="checkURL()">
+        <img src="url.png" alt="check" style="width: 16px; vertical-align: middle; margin-right: 6px;">
+        Check URL
+      </button>
+      <div id="result" class="result"></div>
+    </div>
+
+    <!-- Optional hidden button -->
+    <button id="downloadBtn" onclick="downloadReport()" style="display: none;">Download Report</button>
+
+    <!-- Threat Map -->
+    <div class="map-box">
+      <iframe src="https://threatmap.checkpoint.com/" frameborder="0"></iframe>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
