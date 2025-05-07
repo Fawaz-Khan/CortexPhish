@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phishing Analysis Guide</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="tab.png" type="image/png" />
+  <style>
+    .container h3 {
+      color: var(--accent);
+      margin-top: 25px;
+      font-weight: 600;
+    }
+
+    ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    a.back {
+      display: inline-block;
+      margin-top: 40px;
+      background-color: var(--primary);
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    a.back:hover {
+      background-color: #cc0000;
+    }
+
+    .info-section {
+      text-align: left;
+      max-width: 1200px;
+      margin: 40px auto;
+      line-height: 1.3;
+      font-size: 17px;
+    }
+
+    code {
+      background-color: #1a1a1a;
+      color: #ff6666;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container info-section">
+    <h2>🔎 Phishing Detection & Analysis Tool - Technical Guide</h2>
+
+    <h3>📌 What Is Phishing?</h3>
+    <p>
+      Phishing is a form of cyber deception where attackers impersonate legitimate services or people to steal sensitive data—like passwords, credit card numbers, or login tokens—through misleading links or fake websites.
+    </p>
+
+    <h3>🛠️ How This Tool Works</h3>
+    <p>This tool performs a dual-layered analysis:</p>
+    <ul>
+      <li><strong>Static Checks:</strong> Heuristic-based rules run locally to flag suspicious URL traits.</li>
+      <li><strong>AI-Powered Verdict:</strong> The URL and red flags are sent to an AI model, which generates a human-readable security assessment and final risk verdict.</li>
+    </ul>
+
+    <h3>🧪 Security Checks Explained</h3>
+    <ul>
+      <li><strong>HTTPS Protocol:</strong> Checks if the site uses <code>https://</code>. A lack of encryption is a major red flag.</li>
+      <li><strong>Website Reachability:</strong> Confirms if the site is currently active and can be resolved via DNS.</li>
+      <li><strong>IP Address Instead of Domain:</strong> Phishing sites sometimes hide behind IPs instead of using real domain names.</li>
+      <li><strong>Subdomain Depth:</strong> Too many nested subdomains (e.g., <code>login.secure.paypal.update.example.com</code>) may attempt to deceive users.</li>
+      <li><strong>Hyphen Count:</strong> Domains like <code>secure-login-update-verification.com</code> mimic legit sites using excessive hyphens.</li>
+      <li><strong>Punycode Encoding:</strong> Checks for domains using <code>xn--</code> encoding that visually spoof legitimate names (e.g., <code>xn--pple-43d.com</code>).</li>
+      <li><strong>Suspicious Top-Level Domains:</strong> TLDs like <code>.tk</code>, <code>.ml</code>, <code>.gq</code> are frequently abused in phishing campaigns.</li>
+      <li><strong>URL Path Length:</strong> Extremely long URLs can hide malicious payloads or redirects.</li>
+      <li><strong>Suspicious Keywords:</strong> Words like <code>login</code>, <code>verify</code>, <code>auth</code>, <code>secure</code> in the URL path may indicate phishing.</li>
+      <li><strong>SSL Certificate:</strong> Valid SSL certs show the domain has been vetted and encrypted. Fake sites often lack this.</li>
+    </ul>
+
+    <h3>🧠 AI Risk Evaluation</h3>
+    <p>The tool sends the URL and red flags to an AI model via API. The AI provides:</p>
+    <ul>
+      <li>A detailed review of all parameters</li>
+      <li>A human-like explanation with contextual clarity</li>
+      <li>A final verdict indicating whether the URL is likely safe or suspicious</li>
+    </ul>
+
+    <h3>🛡️ How to Protect Yourself</h3>
+    <ul>
+      <li><strong>Double-check URLs:</strong> Hover before clicking. Look for misspellings or extra characters in domains.</li>
+      <li><strong>Verify sender legitimacy:</strong> Do not trust emails or texts requesting urgent action—always confirm through official sources.</li>
+      <li><strong>Use MFA (Multi-Factor Authentication):</strong> Even if your password is stolen, this can block access.</li>
+      <li><strong>Install browser security plugins:</strong> Tools like Netcraft or Bitdefender can flag phishing sites in real-time.</li>
+      <li><strong>Keep software updated:</strong> Security patches close known vulnerabilities often used in phishing.</li>
+      <li><strong>Educate yourself and others:</strong> Stay informed about phishing techniques and train your team or family.</li>
+    </ul>
+
+    <h3>🚨 If You Think You've Been Compromised</h3>
+    <ul>
+      <li><strong>Change your passwords immediately</strong>—especially for financial or email accounts.</li>
+      <li><strong>Enable MFA</strong> on all critical services (banks, email, cloud storage).</li>
+      <li><strong>Notify your bank</strong> or card issuer to monitor fraud or freeze accounts if necessary.</li>
+      <li><strong>Scan your device</strong> with antivirus software to detect any malware.</li>
+      <li><strong>Report the phishing attempt</strong> to your IT team, email provider, or national cybercrime unit (e.g., <code>phishing-report@us-cert.gov</code>).</li>
+    </ul>
+
+    <h3>📄 PDF Report Generator</h3>
+    <p>The downloadable PDF report includes:</p>
+    <ul>
+      <li>Tested URL</li>
+      <li>Timestamp of report generation</li>
+      <li>Heuristic checklist with pass/fail statuses</li>
+      <li>Definition of each check</li>
+      <li>Final AI risk verdict with detailed reasoning</li>
+      <li>Disclaimer about automated results</li>
+    </ul>
+
+    <h3>📢 Disclaimer</h3>
+    <p style="color: #aaa; font-style: italic;">
+      This tool is intended for educational and informational purposes only. It does not replace professional security audits or legal evaluations. Always consult certified professionals before making decisions based on this tool’s output.
+    </p>
+
+    <a href="index.html" class="back">← Back to URL Checker</a>
+  </div>
+</body>
+</html>
